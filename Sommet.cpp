@@ -10,11 +10,11 @@ Sommet::Sommet(string e){
 }
 
 Sommet::Sommet(const Sommet &s){
-    etiquette=*(s.getEtiquette());
-    cout << "Copie de " << s;
+    etiquette = s.etiquette;
+    cout << "Copie de Sommet"<<endl;
 }
 
-ostream& operator<<( ostream& out ,const Sommet &s){
+ostream& operator<<( ostream& out , Sommet &s){
     out<<"Sommet:"<<s.getEtiquette()<<endl;
     return out ;
 }
