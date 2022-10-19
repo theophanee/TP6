@@ -4,22 +4,23 @@
 #include"Arete.hpp"
 #include<iostream>
 #include<string>
+#include<vector>
 
 using namespace std;
 
 class Graphe{
     private:
-        Sommet *sommets;
-        Arete *aretes;
+        vector<Sommet> sommets;
+        vector<Arete> aretes;
     public:
-        Graphe(Sommet *s, Arete *a);
+        Graphe(vector<Sommet> s,vector<Arete> a);
         Graphe(const Graphe &g);
-        void ajoute_sommet(Sommet s);
-        void ajoute_arete(Arete a);
+        void ajoute_sommet(Sommet *s);
+        void ajoute_arete(Arete *a);
         int poids();
         void symetrie();
-        Sommet* getSommets();
-        Arete* getAretes();
+        vector<Sommet> getSommets();
+        vector<Arete> getAretes();
         //kruskal();
         
 };

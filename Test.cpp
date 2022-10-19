@@ -2,19 +2,29 @@
 #include"Arete.hpp"
 #include"Graphe.hpp"
 #include<iostream>
+#include<vector>
 
 
 int main(){
-
     Sommet s{"test"};
 
     Sommet s2 = s;
+
+    vector<Sommet> const tabs { s, s2 };
 
     Arete a{s,s2,4};
 
     Arete a2{a};
     Arete a3{"1","2",5};
+    vector<Arete> const taba {a,a2,a3};
+    
+    Graphe g{tabs,taba};
 
-    Graphe g{&s,&a3};
+    g.ajoute_arete(new Arete{"7","2",2});
+
+
+    cout<<"Poids : " << g.poids()<< endl;
+
+    cout<< g << endl;
     return EXIT_SUCCESS;
 }
