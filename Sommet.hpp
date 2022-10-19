@@ -16,6 +16,6 @@ class Sommet{
         
 };
 
-ostream& operator <<(ostream& out, Sommet &s) ;
+ostream& operator <<(ostream& out, Sommet &) ;
 
 #endif

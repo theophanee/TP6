@@ -1,17 +1,20 @@
 #include"Sommet.hpp"
 #include"Arete.hpp"
+#include"Graphe.hpp"
 #include<iostream>
 
 
 int main(){
 
     Sommet s{"test"};
-    cout<<s;
 
     Sommet s2 = s;
-    cout<<s2;
 
     Arete a{s,s2,4};
-    cout<<a;
+
+    Arete a2{a};
+    Arete a3{"1","2",5};
+
+    Graphe g{&s,&a3};
     return EXIT_SUCCESS;
 }

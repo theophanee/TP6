@@ -11,7 +11,7 @@ Sommet::Sommet(string e){
 
 Sommet::Sommet(const Sommet &s){
     etiquette = s.etiquette;
-    cout << "Copie de Sommet"<<endl;
+    cout << "Copie de "<< *this;
 }
 
 ostream& operator<<( ostream& out , Sommet &s){

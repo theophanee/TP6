@@ -1,7 +1,7 @@
 CPP=g++ --std=c++11 -Wall
 
-all : Sommet.o Arete.o test.o 
-	$(CPP) -o test test.o Sommet.o Arete.o
+all : Sommet.o Arete.o Graphe.o test.o 
+	$(CPP) -o test test.o Sommet.o Arete.o Graphe.o
 
 Sommet.o : Sommet.cpp Sommet.hpp
 	$(CPP) -c Sommet.cpp
@@ -9,7 +9,10 @@ Sommet.o : Sommet.cpp Sommet.hpp
 Arete.o : Arete.cpp Arete.hpp
 	$(CPP) -c Arete.cpp
 
-test.o : test.cpp Sommet.hpp Arete.hpp
+Graphe.o : Graphe.cpp Graphe.hpp
+	$(CPP) -c Graphe.cpp
+
+test.o : test.cpp Sommet.hpp Arete.hpp Graphe.hpp
 	$(CPP) -c test.cpp
 
 clean :
