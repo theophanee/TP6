@@ -23,6 +23,7 @@ Arete::Arete(Sommet g, Sommet d, int p) : poids{p} {
 Sommet* Arete::getDroite(){ return droite ;}
 Sommet* Arete::getGauche() { return  gauche; }
 int Arete::getPoids(){ return poids; }  
+void Arete::setPoids(int p){ poids = p ;}
 
 ostream& operator<<( ostream& out , Arete &a){
     out<<"Arete("<< a.getPoids() <<"):\nGauche->"<< *(a.getGauche()) << "Droite->" << *(a.getDroite()) <<endl ;

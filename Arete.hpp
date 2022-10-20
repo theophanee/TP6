@@ -17,6 +17,7 @@ class Arete{
         Sommet* getGauche();
         Sommet* getDroite();
         int getPoids();
+        void setPoids(int p);
         
 };
 
