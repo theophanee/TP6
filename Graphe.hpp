@@ -10,10 +10,10 @@ using namespace std;
 
 class Graphe{
     private:
-        vector<Sommet> sommets;
-        vector<Arete> aretes;
+        vector<Sommet*> sommets;
+        vector<Arete*> aretes;
     public:
-        Graphe(vector<Sommet> s,vector<Arete> a);
+        Graphe(vector<Sommet*> s,vector<Arete*> a);
         Graphe(const Graphe &g);
         void ajoute_sommet(Sommet *s);
         void ajoute_sommet(string e);
@@ -22,8 +22,8 @@ class Graphe{
         void ajoute_arete(string e1, string e2, int p);
         int poids();
         void symetrise();
-        vector<Sommet> getSommets();
-        vector<Arete> getAretes();
+        vector<Sommet*> getSommets();
+        vector<Arete*> getAretes();
         //kruskal();
         
 };

@@ -6,17 +6,19 @@
 
 
 int main(){
-    Sommet s{"test"};
+    Sommet s{"A"};
 
-    Sommet s2 = s;
+    Sommet s2{"B"};
 
-    vector<Sommet> const tabs { s, s2 };
+    vector<Sommet*> const tabs { &s, &s2 };
 
     Arete a{s,s2,4};
 
     Arete a2{a};
+    
     Arete a3{"1","2",5};
-    vector<Arete> const taba {a,a2,a3};
+
+    vector<Arete*> const taba {&a,&a2,&a3};
     
     Graphe g{tabs,taba};
 

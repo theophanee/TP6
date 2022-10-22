@@ -9,7 +9,7 @@ Sommet::Sommet(string e) : etiquette{e}{
 }
 
 Sommet::Sommet(const Sommet &s) : etiquette{s.etiquette} {
-    //cout << "Copie de "<< *this;
+    cout << "Copie de "<< *this;
 }
 
 ostream& operator<<( ostream& out , Sommet &s){
