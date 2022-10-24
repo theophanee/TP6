@@ -12,6 +12,10 @@ Sommet::Sommet(const Sommet &s) : etiquette{s.etiquette} {
     cout << "Copie de "<< *this;
 }
 
+Sommet::~Sommet(){
+    cout<<"Destruction du sommet "<< *this<<endl;
+}
+
 ostream& operator<<( ostream& out , Sommet &s){
     out<<"Sommet:"<<s.getEtiquette()<<endl;
     return out ;

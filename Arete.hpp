@@ -13,7 +13,8 @@ class Arete{
     public:
         Arete(string etiquette1, string etiquette2, int p);
         Arete(const Arete &a);
-        Arete(Sommet g, Sommet d, int p);
+        Arete(Sommet *g, Sommet *d, int p);
+        virtual ~Arete();
         Sommet* getGauche();
         Sommet* getDroite();
         int getPoids();

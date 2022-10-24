@@ -21,10 +21,11 @@ class Graphe{
         void ajoute_arete(Sommet *s1, Sommet *s2, int poids);
         void ajoute_arete(string e1, string e2, int p);
         int poids();
+        int find(Arete *a);
         void symetrise();
         vector<Sommet*> getSommets();
         vector<Arete*> getAretes();
-        //kruskal();
+        Graphe* kruskal();
         
 };
 

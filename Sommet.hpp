@@ -12,6 +12,7 @@ class Sommet{
     public:
         Sommet(string etiquette);
         Sommet(const Sommet &s);
+        virtual ~Sommet();
         string getEtiquette();
         
 };
