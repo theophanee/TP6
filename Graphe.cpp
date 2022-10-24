@@ -16,6 +16,10 @@ Graphe::Graphe(const Graphe &g) {
     cout << "Copie de "<< *this;
 } 
 
+Graphe::~Graphe(){
+    cout<<"Destruction du sommet "<< *this<<endl;
+}
+
 ostream& operator<<( ostream& out , Graphe &g){
     out << "Graphe : " <<endl;
     out << "Sommets : "<< endl;
@@ -109,14 +113,25 @@ void Graphe::symetrise(){
    
 }
 
-// Graphe* Graphe::kruskal(){
-//     Graphe *res = new Graphe({},{});
-//    
+Graphe* Graphe::kruskal(){
+    Graphe *res = new Graphe({},{});
+    // c'est bon ça trie les aretes par ordre de poids croissant
+    sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
+    //for(unsigned int i = 0; i < aretes.size(); i++)
+    //    cout<< "    " << *(aretes[i]) ;
+    //cout<<""<<endl;
+    for(unsigned int i = 0 ; i < aretes.size() ; i++){
+        if(res->find( aretes[i] ) == 0){
+            res->ajoute_arete(aretes[i]);
+        }
 
+    }
+    for(unsigned int i = 0; i<res->getAretes().size() ; i++)
+        cout<< "    " << *(aretes[i]) ;
+    cout<< " "<<endl;
+    return res;
 
-//     return res;
-
-// }
+}
 
 vector<Sommet*> Graphe::getSommets(){ return sommets;}
 vector<Arete*> Graphe::getAretes(){ return aretes;}

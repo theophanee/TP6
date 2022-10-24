@@ -28,6 +28,8 @@ int main(){
 
     g.ajoute_arete(new Arete{"7","2",2});
 
+    g.kruskal();
+
 
     cout<<"Poids : " << g.poids()<< endl;
 
