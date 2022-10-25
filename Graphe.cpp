@@ -114,9 +114,10 @@ void Graphe::symetrise(){
 }
 
 
-Graphe* Graphe::kruskal(){
+vector<Arete*> Graphe::kruskal(){
     cout<<"Kruskal"<<endl;
-    Graphe *res = new Graphe({},{});
+    int cptD, cptG;
+    vector<Arete*> res = {};
     vector<Sommet*> tmpS = {}; // stocker les sommets de res
     
     // trie les aretes par ordre de poids croissant
@@ -125,14 +126,33 @@ Graphe* Graphe::kruskal(){
     //    cout<< "    " << *(aretes[i]) ;
     //cout<<""<<endl;
     for(unsigned int i = 0 ; i < aretes.size() ; i++){
-        if(res->getAretes()[i]->getDroite() ){
-            //find (getAretes().begin(), get.end(), 30);
-            res->ajoute_arete(aretes[i]);
+        cout<<"1  "<<*aretes[i]<<endl;
+        cptD = 0;
+        cptG = 0;
+        
+        for(unsigned int j=0; j < tmpS.size() ; j++){
+            cout<<"2  "<<*tmpS[j]<<endl;
+            if(aretes[i]->getDroite()==tmpS[j]){
+                cout<< *(tmpS[j]) << " existe deja"<<endl;
+                cptD = 1;
+            }if(aretes[i]->getGauche()==tmpS[j]){
+                cout<< *(tmpS[j]) << " existe deja"<<endl;
+                cptG = 1;
+            }
         }
+        if((cptD + cptG) !=2){
+                cout<<" ajoute les sommets "<<*aretes[i]->getDroite()<<" et "<<*aretes[i]->getGauche()<<endl;
+                if(cptD==0)
+                    tmpS.push_back(aretes[i]->getDroite());
+                if(cptG==0)
+                    tmpS.push_back(aretes[i]->getGauche());
+                res.push_back(aretes[i]);
+        }else
+            cout<<*aretes[i]<<"Non ajouter"<<endl;
 
     }
-    for(unsigned int i = 0; i<res->getAretes().size() ; i++)
-        cout<< "    " << *(aretes[i]) ;
+    for(unsigned int i = 0; i<res.size() ; i++)
+        cout<< "    " << *(res[i]) ;
     cout<< "Fin Kruskal"<<endl;
 
     return res;
