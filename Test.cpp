@@ -6,39 +6,29 @@
 
 
 int main(){
-    Sommet s{"A"};
+    Sommet a{"A"}, b{"B"}, c{"C"}, d{"D"}, e{"E"}, f{"F"}, g{"G"};
 
-    Sommet s2{"B"};
+    vector<Sommet*> const tabs { &a, &b, &c, &d, &e, &f, &g };
 
-    cout<<"blelblel   "<<&s2<<endl;
+    Arete a1{&a,&b,7}, a2{&a,&d,5}, a3{&d,&b,9}, a4{&b,&c,8}, a5{&b,&e,7}, a6{&d,&e,15}, a7{&c,&e,5}, a8{&d,&f,6}, a9{&f,&e,8}, a10{&e,&g,9}, a11{&f,&g,11} ;
 
-    vector<Sommet*> const tabs { &s, &s2 };
-
-    Arete a{&s,&s2,4};
-    Arete asym{&s2,&s,4};
-
-
-    Arete a2{a};
+    vector<Arete*> const taba {&a1,&a2,&a3,&a4,&a5,&a6,&a7,&a8,&a9,&a10,&a11};
     
-    Arete a3{"1","2",5};
+    Graphe graphe{tabs,taba};
 
-    vector<Arete*> const taba {&a,&asym,&a3};
-    
-    Graphe g{tabs,taba};
+    //g.ajoute_arete(new Arete{"7","2",2});
 
-    g.ajoute_arete(new Arete{"7","2",2});
-
-    g.kruskal();
+    graphe.kruskal();
 
 
-    cout<<"Poids : " << g.poids()<< endl;
+    cout<<"Poids : " << graphe.poids()<< endl;
 
-    cout<< g << endl;
-    cout<< "----------------------- symetrise -----------------------" << endl;
-    g.symetrise();
-    cout<< "----------------------- fin de symetrise -----------------------" << endl;
+    cout<< graphe << endl;
+    //cout<< "----------------------- symetrise -----------------------" << endl;
+    //graphe.symetrise();
+    //cout<< "----------------------- fin de symetrise -----------------------" << endl;
 
-    cout<< g << endl;
+    //cout<< graphe << endl;
 
     return EXIT_SUCCESS;
 }

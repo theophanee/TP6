@@ -30,7 +30,7 @@ int Arete::getPoids(){ return poids; }
 void Arete::setPoids(int p){ poids = p ;}
 
 ostream& operator<<( ostream& out , Arete &a){
-    out<<"Arete("<< a.getPoids() <<"):\nGauche-> "<< (a.getGauche()) << endl << "Droite-> " << (a.getDroite()) <<endl ;
+    out<<"Arete("<< a.getPoids() <<"):\nGauche-> "<< *(a.getGauche()) << endl << "Droite-> " << *(a.getDroite()) <<endl ;
     return out ;
 }
 

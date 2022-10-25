@@ -113,22 +113,28 @@ void Graphe::symetrise(){
    
 }
 
+
 Graphe* Graphe::kruskal(){
+    cout<<"Kruskal"<<endl;
     Graphe *res = new Graphe({},{});
-    // c'est bon ça trie les aretes par ordre de poids croissant
+    vector<Sommet*> tmpS = {}; // stocker les sommets de res
+    
+    // trie les aretes par ordre de poids croissant
     sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
     //for(unsigned int i = 0; i < aretes.size(); i++)
     //    cout<< "    " << *(aretes[i]) ;
     //cout<<""<<endl;
     for(unsigned int i = 0 ; i < aretes.size() ; i++){
-        if(res->find( aretes[i] ) == 0){
+        if(res->getAretes()[i]->getDroite() ){
+            //find (getAretes().begin(), get.end(), 30);
             res->ajoute_arete(aretes[i]);
         }
 
     }
     for(unsigned int i = 0; i<res->getAretes().size() ; i++)
         cout<< "    " << *(aretes[i]) ;
-    cout<< " "<<endl;
+    cout<< "Fin Kruskal"<<endl;
+
     return res;
 
 }
