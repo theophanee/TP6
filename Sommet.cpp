@@ -13,7 +13,7 @@ Sommet::Sommet(const Sommet &s) : etiquette{s.etiquette} {
 }
 
 Sommet::~Sommet(){
-    cout<<"Destruction du sommet "<< *this<<endl;
+    cout<<"Destruction du sommet "<< *this;
 }
 
 ostream& operator<<( ostream& out , Sommet &s){

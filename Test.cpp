@@ -6,6 +6,7 @@
 
 
 int main(){
+
     Sommet a{"A"}, b{"B"}, c{"C"}, d{"D"}, e{"E"}, f{"F"}, g{"G"};
 
     vector<Sommet*> const tabs { &a, &b, &c, &d, &e, &f, &g };
