@@ -17,8 +17,6 @@ int main(){
     
     Graphe graphe{tabs,taba};
 
-    //g.ajoute_arete(new Arete{"7","2",2});
-
     graphe.kruskal();
 
 
