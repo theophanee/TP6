@@ -17,15 +17,18 @@ int main(){
     
     Graphe graphe{tabs,taba};
 
-    graphe.kruskal();
-
 
     cout<<"Poids : " << graphe.poids()<< endl;
 
     cout<< graphe << endl;
-    //cout<< "----------------------- symetrise -----------------------" << endl;
+    cout<< "----------------------- symetrise -----------------------" << endl;
     //graphe.symetrise();
-    //cout<< "----------------------- fin de symetrise -----------------------" << endl;
+    cout<< "----------------------- fin de symetrise -----------------------" << endl;
+
+    vector<Arete*>res = graphe.kruskal();
+    for(unsigned int i = 0; i<res.size() ; i++)
+        cout<< "    " << *(res[i]) ;
+    cout<< "Fin Kruskal"<<endl;
 
     //cout<< graphe << endl;
 

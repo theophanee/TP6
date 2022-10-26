@@ -27,6 +27,7 @@ class Graphe{
         vector<Sommet*> getSommets();
         vector<Arete*> getAretes();
         vector<Arete*> kruskal();
+
         
 };
 

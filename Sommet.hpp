@@ -14,6 +14,8 @@ class Sommet{
         Sommet(const Sommet &s);
         virtual ~Sommet();
         string getEtiquette();
+        void setMarque(int m);
+        int getMarque();
         
 };
 

@@ -59,6 +59,7 @@ int main(){
         break;
     case 5:
         {
+        graphe.symetrise();
         vector<Arete*> res = graphe.kruskal();
         cout<<"Parcours de poids minimal : "<<endl;
         for(unsigned int i=0; i<res.size() ; i++)
