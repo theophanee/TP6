@@ -205,6 +205,8 @@ bool sortkruskal(Arete *u, Arete *v)
 vector<Arete *> Graphe::kruskal()
 {
     // on creer un nouveau graphe
+    cout<<"Kruskal"<<endl;
+    sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
     Graphe gk{*this};
     vector<Arete *> A;
     size_t sizeListeS = getSommets().size();
@@ -216,7 +218,6 @@ vector<Arete *> Graphe::kruskal()
     vector<Arete *> areteL = gk.getAretes();
     
     // trier les arêtes de G par poids croissant
-    sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
     
     // on affecte a la liste d'arete du graphe la liste triee
     gk.setAretes(areteL);
@@ -230,7 +231,7 @@ vector<Arete *> Graphe::kruskal()
             // on ajoute a la liste resultat
             A.push_back(a);
             gk.unir(*(a->getGauche()), *(a->getDroite()));
-            cout << "on ajoute arete au graphe" << endl;
+            cout << "on ajoute "<<*a<<" au graphe" << endl;
         }else{
             cout << "on ajoute pas" << endl;
         }

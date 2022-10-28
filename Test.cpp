@@ -26,6 +26,7 @@ int main(){
     cout<< "----------------------- fin de symetrise -----------------------" << endl;
 
     vector<Arete*>res = graphe.kruskal();
+    cout<<"Aretes de sortie : "<<endl;
     for(unsigned int i = 0; i<res.size() ; i++)
         cout<< "    " << *(res[i]) ;
     cout<< "Fin Kruskal"<<endl;

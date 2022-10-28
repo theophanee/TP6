@@ -14,13 +14,10 @@ class Sommet{
         Sommet(const Sommet &s);
         virtual ~Sommet();
         string getEtiquette();
-<<<<<<< HEAD
         int getMK();
         void setMK(int val);
-=======
         void setMarque(int m);
         int getMarque();
->>>>>>> 9ec26faebb8d14ee3aa6c48deb7c97ea7d86187e
         
 };
 
