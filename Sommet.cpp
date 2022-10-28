@@ -16,6 +16,14 @@ Sommet::~Sommet(){
     cout<<"Destruction du sommet "<< *this;
 }
 
+void Sommet::setMK(int val){
+    marque=val;
+}
+
+int Sommet::getMK(){
+    return marque;
+}
+
 ostream& operator<<( ostream& out , Sommet &s){
     out<<"Sommet:"<<s.getEtiquette()<<endl;
     return out ;

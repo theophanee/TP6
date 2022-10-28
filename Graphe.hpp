@@ -24,6 +24,10 @@ class Graphe{
         int poids();
         int find(Arete *a);
         void symetrise();
+        void creerEnsemble(Sommet &v, int val);
+        int findkruskal(Sommet &v);
+        void unir(Sommet &u, Sommet &v);
+        void setAretes(vector<Arete*> a);
         vector<Sommet*> getSommets();
         vector<Arete*> getAretes();
         vector<Arete*> kruskal();
