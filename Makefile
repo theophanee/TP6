@@ -1,12 +1,14 @@
 CPP=g++ --std=c++11 -Wall
 
-all : test arete sommet graphe
+all : test arete sommet graphe GC
 
 Sommet.o : Sommet.cpp Sommet.hpp
 	$(CPP) -c Sommet.cpp
 
 Arete.o : Arete.cpp Arete.hpp
 	$(CPP) -c Arete.cpp
+GC.o : Gc.cpp GC.hpp
+	$(CPP) -c GC.cpp
 
 Graphe.o : Graphe.cpp Graphe.hpp
 	$(CPP) -c Graphe.cpp

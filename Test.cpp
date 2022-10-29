@@ -1,6 +1,7 @@
 #include"Sommet.hpp"
 #include"Arete.hpp"
 #include"Graphe.hpp"
+#include "GC.hpp"
 #include<iostream>
 #include<vector>
 
@@ -32,6 +33,8 @@ int main(){
     cout<< "Fin Kruskal"<<endl;
 
     //cout<< graphe << endl;
+
+    GC::libererMemoire();
 
     return EXIT_SUCCESS;
 }

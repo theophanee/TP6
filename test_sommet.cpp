@@ -1,4 +1,5 @@
 #include"Sommet.hpp"
+#include "GC.hpp"
 #include<iostream>
 
 
@@ -30,6 +31,7 @@ int main(){
         break;
     }
 
+    GC::libererMemoire();
 
     return EXIT_SUCCESS;
 }

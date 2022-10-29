@@ -1,4 +1,5 @@
 #include "Sommet.hpp"
+#include "GC.hpp"
 #include<iostream>
 #include<string>
 
@@ -6,10 +7,13 @@ using namespace std;
 
 Sommet::Sommet(string e) : etiquette{e}{
     cout << "Construction de " << *this;
+    GC::setGCS(this);
 }
 
 Sommet::Sommet(const Sommet &s) : etiquette{s.etiquette} {
     cout << "Copie de "<< *this;
+    GC::setGCS(this);
+    
 }
 
 Sommet::~Sommet(){

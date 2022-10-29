@@ -1,6 +1,7 @@
 #include"Sommet.hpp"
 #include"Arete.hpp"
 #include"Graphe.hpp"
+#include "GC.hpp"
 #include<iostream>
 #include<vector>
 
@@ -72,6 +73,8 @@ int main(){
 
         break;
     }
+
+    GC::libererMemoire();
 
     return EXIT_SUCCESS;
 }

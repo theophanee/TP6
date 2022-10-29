@@ -1,5 +1,6 @@
 #include"Sommet.hpp"
 #include"Arete.hpp"
+#include "GC.hpp"
 #include<iostream>
 #include<vector>
 
@@ -39,6 +40,8 @@ int main(){
         cout<<"Pas compris"<<endl;
         break;
     }
+
+    GC::libererMemoire();
 
     return EXIT_SUCCESS;
 }
