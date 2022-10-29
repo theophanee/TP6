@@ -33,9 +33,4 @@ ostream& operator<<( ostream& out , Sommet &s){
     return out ;
 }
 
-void Sommet::setMarque(int val){
-    marque = val;
-}
-int Sommet::getMarque(){return marque;}
-
 string Sommet::getEtiquette(){return etiquette;}

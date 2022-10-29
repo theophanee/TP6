@@ -16,8 +16,6 @@ class Sommet{
         string getEtiquette();
         int getMK();
         void setMK(int val);
-        void setMarque(int m);
-        int getMarque();
         
 };
 
