@@ -74,7 +74,7 @@ int main(){
         break;
     }
 
-    GC::libererMemoire();
+    GC::libereGC();
 
     return EXIT_SUCCESS;
 }

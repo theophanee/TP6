@@ -20,11 +20,11 @@ Sommet::~Sommet(){
     cout<<"Destruction du sommet "<< *this;
 }
 
-void Sommet::setMK(int val){
+void Sommet::setMarque(int val){
     marque=val;
 }
 
-int Sommet::getMK(){
+int Sommet::getMarque(){
     return marque;
 }
 

@@ -13,8 +13,8 @@ class GC{
         static vector<Arete*> gcAretes;
         static void setGCS(Sommet *s);
         static void setGCA(Arete *a);
-        static void affichage();
-        static void libererMemoire();
+        static void afficheGC();
+        static void libereGC();
 
 };
 

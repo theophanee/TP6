@@ -22,9 +22,9 @@ int main(){
     cout<<"Poids : " << graphe.poids()<< endl;
 
     cout<< graphe << endl;
-    cout<< "----------------------- symetrise -----------------------" << endl;
+
     //graphe.symetrise();
-    cout<< "----------------------- fin de symetrise -----------------------" << endl;
+    
 
     vector<Arete*>res = graphe.kruskal();
     cout<<"Aretes de sortie : "<<endl;
@@ -34,7 +34,7 @@ int main(){
 
     //cout<< graphe << endl;
 
-    GC::libererMemoire();
+    GC::libereGC();
 
     return EXIT_SUCCESS;
 }

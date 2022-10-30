@@ -7,18 +7,18 @@ vector<Arete*> GC::gcAretes{};
 
 //setter
 void GC::setGCS(Sommet *s){
-    GC::gcSommets.push_back(s);
+    gcSommets.push_back(s);
 }
 
 void GC::setGCA(Arete *a){
-    GC::gcAretes.push_back(a);
+    gcAretes.push_back(a);
 }
 
-void GC::affichage(){
+void GC::afficheGC(){
     cout << "Il y a " << gcAretes.size() << " pointeurs sur aretes et "<< gcSommets.size() << " pointeurs sur sommets "<< endl;
 }
 
-void GC::libererMemoire(){
+void GC::libereGC(){
     for (Sommet *s : gcSommets){
         delete s;
     }

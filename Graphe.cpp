@@ -69,133 +69,64 @@ int Graphe::poids(){
     return p;
 }
 
-int Graphe::find(Arete* a){
-    cout<<"_______ FAINDE _______"<<endl;
-
+int Graphe::findArete(Arete* a){
     Sommet* d=a->getDroite();
     Sommet* g=a->getGauche();
     int p=a->getPoids();
-    cout<<g<<endl;
-    cout<<d<<endl;
-    
-    cout<<p<<endl;
-
     
     for (unsigned int i = 0; i < aretes.size(); i++){
-        // cout<<"_______ find "<<i+1<<"_______"<<endl;
-        
-        cout<<getAretes()[i]->getGauche()<<endl;
-        cout<<getAretes()[i]->getDroite()<<endl;
-        cout<<getAretes()[i]->getPoids()<<endl;
+
 
         if ( getAretes()[i]->getDroite()==d && getAretes()[i]->getGauche()==g && getAretes()[i]->getPoids()==p){
-            // cout<<"_______ find 000 _______"<<endl;
             return 0;
         }
-        
     }
-    // cout<<"_______ find ---111 _______"<<endl;
     return -1;
 }
 
 void Graphe::symetrise(){
+    cout<<"Debut de symetrise"<<endl;
     for (unsigned int i = 0; i < aretes.size(); i++){
         
         Arete *sym = new Arete( getAretes()[i]->getDroite() , getAretes()[i]->getGauche() , getAretes()[i]->getPoids());
 
-        // cout<<"sujet "<<i<<endl;
-        
-        
-        if ( find(sym) == -1 ) {
-            cout<<"bizarre, on ajoute sym dans aretes : "<<sym<<endl;
+        if ( findArete(sym) == -1 ) {
+            cout<<"On ajoute l'aretes : "<<sym<<endl;
             ajoute_arete(sym);
         }
-        else cout<<"ok: "<<aretes[i]<<endl;
+        else cout<<"l'arete: "<<aretes[i]<<" est presente"<<endl;
     }
-   
+   cout<<"Fin de symetrise"<<endl;
 }
-
-
-// vector<Arete*> Graphe::kruskaltheophile(){
-//     cout<<"Kruskal"<<endl;
-//     int cptD, cptG; // compteur pour verifier la presence dans tmpS
-//     vector<Arete*> res = {}; // liste des aretes choisies
-//     vector<Sommet*> tmpS = {}; // stocker les sommets de res
-    
-//     // trie les aretes par ordre de poids croissant
-//     sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
-    
-//     // parcours les aretes du graphes dans l'ordre croissant des poids
-//     for(unsigned int i = 0 ; i < aretes.size() ; i++){
-//         cout<<"1  "<<*aretes[i]<<endl;
-//         cptD = 0;
-//         cptG = 0;
-        
-//         // pour savoir si les sommets de l'arete sont deja present
-//         for(unsigned int j=0; j < tmpS.size() ; j++){
-//             cout<<"2  "<<*tmpS[j]<<endl;
-//             // verifie pour les deux sommets
-//             if(aretes[i]->getDroite()==tmpS[j]){
-//                 cout<< *(tmpS[j]) << " existe deja"<<endl;
-//                 cptD = 1;
-//             }if(aretes[i]->getGauche()==tmpS[j]){
-//                 cout<< *(tmpS[j]) << " existe deja"<<endl;
-//                 cptG = 1;
-//             }
-//         }
-//         if((cptD + cptG) <2){
-//             // ajoute si necessaire les sommets dans tmpS et les aretes dans res
-//                 cout<<" ajoute les sommets "<<*aretes[i]->getDroite()<<" et "<<*aretes[i]->getGauche()<<endl;
-//                 if(cptD==0)
-//                     tmpS.push_back(aretes[i]->getDroite());
-//                 if(cptG==0)
-//                     tmpS.push_back(aretes[i]->getGauche());
-//                 res.push_back(aretes[i]);
-//         }else
-//             cout<<*aretes[i]<<"Non ajouter"<<endl;
-
-//     }
-//     // affiche les aretes choisies
-//     for(unsigned int i = 0; i<res.size() ; i++)
-//         cout<< "    " << *(res[i]) ;
-//     cout<< "Fin Kruskal"<<endl;
-
-//     return res;
-
-// }
-
-
-
 
 // etiquette sommet avec entier unique
 void Graphe::creerEnsemble(Sommet &v, int val)
 {
-    v.setMK(val);
+    v.setMarque(val);
     cout << v << "numero : " << val << endl;
 }
 
 // retourne l'entier du sommet
-int Graphe::findkruskal(Sommet &v)
+int Graphe::find(Sommet &v)
 {
-    return v.getMK();
+    return v.getMarque();
 }
 
-void Graphe::unir(Sommet &u, Sommet &v)
+void Graphe::uni(Sommet &u, Sommet &v)
 {
-    // donner le même numéro à tous les sommets qui ont le même numéro que u ou que v
-    for (Sommet *s : this->getSommets())
-    {
-        cout << "on regarde le sommet " << s->getEtiquette() << ", entier : " << s->getMK() << endl;
+    // On donne le même numéro à tous les sommets qui ont le même numéro que u ou que v
+    for (Sommet *s : this->getSommets()){
+        cout << "Sommet " << s->getEtiquette() << ", entier : " << s->getMarque() << endl;
         // si sommet s a le meme numero que sommet u ou v (sans prendre les sommet u et v)
-        if (((s->getMK() == v.getMK()) || (s->getMK() == u.getMK())) && (s != &u) && (s != &v))
+        if (((s->getMarque() == v.getMarque()) || (s->getMarque() == u.getMarque())) && (s != &u) && (s != &v))
         {
-            cout << "on affecte num " << u.getMK() << " au sommet " << s->getEtiquette() << endl;
+            cout << "on affecte la marque " << u.getMarque() << " au sommet " << s->getEtiquette() << endl;
             // on donne meme numero que sommet u
-            s->setMK(u.getMK());
+            s->setMarque(u.getMarque());
         }
     }
     // on affecte aussi a v num de u
-    v.setMK(u.getMK());
+    v.setMarque(u.getMarque());
 }
 
 bool sortkruskal(Arete *u, Arete *v)
@@ -203,40 +134,42 @@ bool sortkruskal(Arete *u, Arete *v)
     return ((*u).getPoids() < (*v).getPoids());
 }
 
-vector<Arete *> Graphe::kruskal()
-{
-    // on creer un nouveau graphe
-    cout<<"Kruskal"<<endl;
+vector<Arete *> Graphe::kruskal(){
+    cout<<"Debut de l'algorithme de Kruskal"<<endl;
+    // On trie nos arete dans l'ordre croissant en fonction de leur poids
     sort(aretes.begin(), aretes.end(), [] (Arete* x, Arete* y) { return x->getPoids() < y->getPoids(); });
+
+
+    // on creer un nouveau graphe
     Graphe gk{*this};
     vector<Arete *> A;
     size_t sizeListeS = getSommets().size();
     for (size_t i = 0; i < sizeListeS; i++)
     {
-        // on donne aux sommets des valeurs distinctes
+        // On donne aux sommets des valeurs distinctes
         gk.creerEnsemble(*(gk.getSommets()[i]), i);
     }
     vector<Arete *> areteL = gk.getAretes();
     
-    // trier les arêtes de G par poids croissant
     
     // on affecte a la liste d'arete du graphe la liste triee
     gk.setAretes(areteL);
-    // pour chaque arete triee
+    // On parcourt les arete triee
     for (Arete *a : gk.getAretes())
     {
-        cout << *a;
+        cout << "-----------------------"<<endl<<"nous traitons l'arete "<<*a<<endl;
         // on regarde numero sommets
-        if (gk.findkruskal(*(a->getGauche())) != gk.findkruskal(*(a->getDroite())))
+        if (gk.find(*(a->getGauche())) != gk.find(*(a->getDroite())))
         {
             // on ajoute a la liste resultat
             A.push_back(a);
-            gk.unir(*(a->getGauche()), *(a->getDroite()));
-            cout << "on ajoute "<<*a<<" au graphe" << endl;
+            gk.uni(*(a->getGauche()), *(a->getDroite()));
+            cout << "L'arete est ajoutee "<< endl;
         }else{
-            cout << "on ajoute pas" << endl;
+            cout << "L'arete n'est pas ajoutee"<< endl;
         }
     }
+    cout<<"Fin de l'algorithme de Kruskal"<<endl;
     return A;
 }
 
