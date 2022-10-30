@@ -15,7 +15,7 @@ class Graphe{
     public:
         Graphe(vector<Sommet*> s,vector<Arete*> a);
         Graphe(const Graphe &g);
-        //virtual ~Graphe();
+        virtual ~Graphe();
         void ajoute_sommet(Sommet *s);
         void ajoute_sommet(string e);
         void ajoute_arete(Arete *a);

@@ -6,9 +6,13 @@
 
 using namespace std;
 
-Graphe::Graphe(vector<Sommet*> s, vector<Arete*> a) : sommets{s}, aretes{a}{
+Graphe::Graphe(vector<Sommet*> s, vector<Arete*> a) : sommets{s}{
+    for (unsigned int i = 0; i < a.size(); i++){
+        ajoute_arete(a[i]);
+    }
     
     cout<< "Construction de " << *this ;
+
 }
 
 Graphe::Graphe(const Graphe &g) {
@@ -17,9 +21,9 @@ Graphe::Graphe(const Graphe &g) {
     cout << "Copie de "<< *this;
 } 
 
-/*Graphe::~Graphe(){
-    cout<<"Destruction du sommet "<< *this<<endl;
-}*/
+Graphe::~Graphe(){
+    cout<<"Destruction du "<< *this<<endl;
+}
 
 ostream& operator<<( ostream& out , Graphe &g){
     out << "Graphe : " <<endl;
@@ -41,6 +45,7 @@ void Graphe::ajoute_sommet(Sommet *s){
 
 void Graphe::ajoute_sommet(string e){
     Sommet *s = new Sommet{e};
+    GC::setGCS(s);
     cout<<"Ajout "<<*s<<endl;
     sommets.push_back(s);
 }
@@ -52,12 +57,18 @@ void Graphe::ajoute_arete(Arete *a){
 
 void Graphe::ajoute_arete(Sommet *s1, Sommet *s2, int p){
     Arete *a = new Arete(s1 , s2 , p);
+    GC::setGCA(a);
     cout<<"Ajout arete "<<*a<<endl;
     aretes.push_back(a);
 }
 
 void Graphe::ajoute_arete(string e1, string e2, int p){
-    Arete *a = new Arete( (new Sommet{e1}) , (new Sommet{e2}) , p);
+    Sommet* s1 = new Sommet{e1};
+    Sommet* s2 = new Sommet{e2};
+    Arete *a = new Arete( s1 ,s2 , p);
+    GC::setGCS(s1);
+    GC::setGCS(s2);
+    GC::setGCA(a);
     cout<<"Ajout arete "<<*a<<endl;
     aretes.push_back(a);
 }

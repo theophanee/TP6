@@ -7,7 +7,9 @@ using namespace std;
 
 Arete::Arete(string etiquette1, string etiquette2, int p) : gauche{new Sommet{etiquette1}}, droite{new Sommet{etiquette2}}, poids{p} {
     cout << "Construction de " << *this;
-    GC::setGCA(this);
+    GC::setGCS(gauche);
+    GC::setGCS(droite);
+
 }
 
 Arete::Arete(const Arete &a) : poids{a.poids} {
