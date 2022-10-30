@@ -7,15 +7,17 @@
 
 int main(){
 
+    // Test les fonctionnalitees de Arete
+
     cout<<"Constructeurs : "<<endl;
 
+    // differentes initialisations
     Sommet a{"A"}, b{"B"}, c{"C"}, d{a};
-
     Arete a1{&a,&b,7}, a2{&a,&d,8}, a3{"D","E",6}, a4{a1};
 
-    int choix;
+    int choix; // choix utilisateur
 
-    cout<<"Test des méthodes d'arete"<<endl; 
+    cout<<"Test des methodes d'arete"<<endl; 
     cout<<"Choisir le test pour "<< a1<<"1) Getter Sommet de Gauche\n2) Getter Sommet de Droite\n3) Getter du Poids\n4) Setter du Poids"<<endl;
     cin>>choix;
 

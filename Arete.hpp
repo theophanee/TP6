@@ -8,7 +8,9 @@ using namespace std;
 
 class Arete{
     private:
-        Sommet *gauche, *droite;
+        // const pour ne plus pouvoir les changer
+        Sommet *const gauche ;
+        Sommet *const droite ;
         int poids;
     public:
         Arete(string etiquette1, string etiquette2, int p);
