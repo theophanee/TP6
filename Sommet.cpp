@@ -15,10 +15,10 @@ Sommet::Sommet(const Sommet &s) : etiquette{s.etiquette} {
     GC::setGCS(this);
     
 }
-
+/*
 Sommet::~Sommet(){
     cout<<"Destruction du sommet "<< *this;
-}
+}*/
 
 void Sommet::setMarque(int val){
     marque=val;

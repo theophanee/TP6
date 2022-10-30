@@ -24,10 +24,10 @@ Arete::Arete(Sommet *g, Sommet *d, int p) : poids{p} {
     GC::setGCA(this);
 
 }
-
+/*
 Arete::~Arete(){
     cout<<"Destruction de l'arete "<< *this;
-}
+}*/
 
 Sommet* Arete::getDroite(){ return droite ;}
 Sommet* Arete::getGauche() { return  gauche; }

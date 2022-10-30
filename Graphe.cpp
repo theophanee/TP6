@@ -17,9 +17,9 @@ Graphe::Graphe(const Graphe &g) {
     cout << "Copie de "<< *this;
 } 
 
-Graphe::~Graphe(){
+/*Graphe::~Graphe(){
     cout<<"Destruction du sommet "<< *this<<endl;
-}
+}*/
 
 ostream& operator<<( ostream& out , Graphe &g){
     out << "Graphe : " <<endl;

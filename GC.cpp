@@ -19,12 +19,23 @@ void GC::afficheGC(){
 }
 
 void GC::libereGC(){
-    for (Sommet *s : gcSommets){
-        delete s;
+    cout<<"Liberation de la memoire"<<endl;
+
+    for (unsigned int i = 0 ; i<gcSommets.size() ; i++){
+        cout<<"Destruction de sommet "<< *gcSommets[i] << "a l'adresse : " << gcSommets[i] << endl;
+        delete gcSommets[i];
+        cout<<"supprimer"<<endl;
     }
-    for (Arete *a : gcAretes){
+    
+    for (Arete* a : gcAretes){
+        cout<<"Destruction de "<< *a << endl;
         delete a;
     }
+    for(Sommet *s : gcSommets)
+        cout<<*s;
+    for(Arete *a : gcAretes)
+        cout<<*a;
+
     gcSommets.clear();
     gcAretes.clear();
 }
